@@ -1,0 +1,64 @@
+[
+ {"question": "In What Year Pitirim Sorokin Was Born?",
+ "answers": [
+  {"id": 0, "text": "1900"},
+  {"id": 1, "text": "1889"},
+  {"id": 2, "text": "1898"},
+  {"id": 3, "text": "1917"}
+ ],
+  "correct": 1
+ },
+
+ {
+  "question" : "During Russian Revolution in 1917 he was a member of ... ",
+  "answers"  : [
+   {"id"  : 0, "text" : "RSDPR - Bolsheviks"},
+   {"id"  : 1, "text" : "Cosnstitutional Democrats (Kadets)"},
+   {"id"  : 2, "text" : "RSDPR - Mensheviks"},
+   {"id"  : 3, "text" : "Socailst Revolutioners"}
+  ],
+  "correct"  : 3
+ },
+ {
+  "question" : "The concept of Reflexology was rooted on the ideas of ",
+  "answers"  : [
+   {"id"  : 0, "image" : "images/quiz_1.jpg" },
+   {"id"  : 1, "image" : "images/quiz_2.jpg" },
+   {"id"  : 2, "image" : "images/quiz_3.jpg" },
+   {"id"  : 3, "image" : "images/quiz_4.jpg" }
+  ],
+  "correct"  : 0,
+  "feedback" : "Ivan Pavlov, but not Karl Marx, Albert Einstein, or Max Weber"
+ },
+ {
+  "question" : "Question 4",
+  "answers"  : [
+   {"id"  : 0, "text" : "one"},
+   {"id"  : 1, "text" : "two"},
+   {"id"  : 2, "text" : "three"},
+   {"id"  : 3, "text" : "four"}
+  ],
+  "correct"  : 2
+ },
+ {
+  "question" : "Question 5",
+  "answers"  : [
+   {"id"  : 0, "text" : "Answer 1"},
+   {"id"  : 1, "text" : "Answer 2"},
+   {"id"  : 2, "text" : "Answer 3"},
+   {"id"  : 3, "text" : "Answer 4"},
+   {"id"  : 4, "text" : "Answer 5"},
+   {"id"  : 5, "text" : "Answer 6"}
+  ],
+  "correct"  : 4,
+  "feedback" : "Lorem ."
+ },
+ {
+  "question" : "Question 6",
+  "answers"  : [
+   {"id"  : 0, "text" : "True"},
+   {"id"  : 1, "text" : "False"}
+  ],
+  "correct"  : 0
+ }
+]

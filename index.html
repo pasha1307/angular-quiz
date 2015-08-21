@@ -1,0 +1,62 @@
+<html ng-app="myQuiz">
+<head>
+  <meta charset="UTF-8">
+  <title>Pitirim Sorokin Quiz</title>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<div id="myQuiz" ng-controller="QuizController">
+ <h1><span>Pitirim Sorokin </span>Test your knowledge</h1>
+ <div class="progress">
+   <div class="
+          {{ ($index === activeQuestion) ? 'on' : 'off' }}
+          {{ (q.questionState === 'answered') ? 'answered' : 'unanswered' }}
+          {{ (q.correctness === 'correct') ? 'correct' : 'incorrect'}}
+              "
+        ng-repeat="q in quizQuestions">
+   </div>
+ </div>
+  <div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active'}}">
+    <h2>Welcome</h2>
+    <p>Click to begin</p>
+    <p class="btn" ng-click="activeQuestion = 0">Begin</p>
+  </div>
+  <div class="question
+              {{ $index === activeQuestion ? 'active' : 'inactive' }}
+              {{ q.questionState === 'answered' ? 'answered' : 'unanswered' }} "
+       ng-repeat="q in quizQuestions">
+   <p class="txt">{{q.question}}</p>
+   <p class="ans"
+      ng-class="{image: Answer.image,
+                 selected: isSelected($parent.$index, $index),
+                 correct: isCorrect($parent.$index, $index)} "
+      ng-style="{'background-image': 'url({{ Answer.image }})'}"
+      ng-click="selectAnswer($parent.$index, $index)"
+      ng-repeat="Answer in quizQuestions[$index].answers"
+   > {{Answer.text}}
+   </p>
+   <div class="feedback">
+    <p ng-show="q.correctness === 'correct'">Good! Keep scoring</p>
+    <p ng-show="q.correctness === 'incorrect'">Oops!!! Pay attention at the next question</p>
+    <p>{{q.feedback}}</p>
+    <div class="btn" ng-click="selectContinue()">Continue</div>
+  </div>
+  </div>
+ <div class="result {{ (totalQuestions === activeQuestion)  ? 'active' : 'inactive' }}">
+  <h3>Result</h3>
+  <p>You scored {{percentage}} % and answered correctly {{score}} of {{totalQuestions}} questions</p>
+  <p>Use links to challange your friends</p>
+  <div class="share" ng-bind-html="shareLink(percentage)">
+  </div>
+ </div>
+ </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+ <script src="app.js"></script>
+<script src="quiz.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+</html>

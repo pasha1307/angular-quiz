@@ -1,0 +1,179 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:900|Roboto:400,100);
+
+body { background-color: darkslategrey; padding: 20px;}
+
+#myQuiz {
+  font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400;
+  width: 650px; height: 850px; position: relative; overflow: hidden; background-color:darkslategrey; color: floralwhite; margin: 0 auto;
+}
+#myQuiz h1 {
+  font-weight: 100; font-size: 1.9em; text-transform: uppercase; margin: 0;
+  position: absolute; top: 25px; left: 35px;
+}
+#myQuiz h1 span {
+  font-family:"Titillium Web", sans-serif; font-weight: 900; font-size: 1.4em;
+  line-height: 25px; display: block;
+}
+#myQuiz h2 {font-size: 3em; font-weight: 100; margin: 0;}
+#myQuiz h3 {font-size: 2.4em; font-weight: 100; margin: 0;}
+#myQuiz p { margin: 0px 0px 14px 0px;}
+#myQuiz .btn {
+  display: inline-block; cursor: pointer; background-color: #c04b01;
+  text-decoration: none;
+  color: #fff; padding: 5px 15px; border-radius: 6px;
+}
+
+/*div progress*/
+
+#myQuiz .progress {position: absolute; top: 120px; left: 35px; width: 550px;}
+#myQuiz .progress div {
+  position: relative;
+  display: inline-block;
+  width: 30px; height: 30px;
+  margin-right: 25px;
+  border-radius: 50;
+  background-color: rgba(255,255,255,.2);
+  transition: background-color 1s;
+}
+
+#myQuiz .progress div.on,
+#myQuiz .progress div.answered
+{
+  background-color: #efbe5e;
+}
+#myQuiz .progress div::after {
+  content: "";
+  display: block; position: absolute; top: -60px; left: -5px;
+  width: 30px; height: 30px; border: 5px solid rgba(238,289,102,.4);
+  border-radius: 50;
+  opacity: 0;
+  transition: opacity 1s, top 500;
+}
+#myQuiz .progress div.correct::after {
+  opacity: 1; top: -5;
+}
+/*div intro*/
+
+#myQuiz .intro {position: absolute; top: 225px; left: 660px; width: 550px;}
+#myQuiz .intro p { margin: 0px 0px 40px 0px;}
+
+/*div question*/
+
+#myQuiz .question {position: absolute; top: 225px; left: -1360px; width: 550px;}
+#myQuiz .question .txt {font-size: 1.6em; margin: 0px 0px 15px 0px;}
+#myQuiz .question .ans {
+  display: inline-block;
+  width: 225px;
+  font-size: 1.1em;
+  margin: 0px 10px 10px 0px;
+  padding: 10px;
+  position: relative;
+  border: 2px solid rgba(238,189,102,.4);
+  border-radius: 6px;
+
+}
+#myQuiz .question .ans.selected {border-color: #be4b16;}
+#myQuiz .question .ans.correct {border-color: #459a2e;}
+
+#myQuiz .question .ans::after {
+  content: ""; position: absolute; top: 5px; right:5px;
+  display: block; width: 20px; height: 20px;
+  background: no-repeat 0px 0px; background-size: 20px 20px;
+}
+#myQuiz .question .ans.selected::after {background-image: url(images/icon_incorrect.svg); }
+#myQuiz .question .ans.correct::after {background-image: url(images/icon_correct.svg); }
+
+#myQuiz .question.unanswered .ans {cursor: pointer;}
+#myQuiz .question.unanswered .ans:hover {background-color: rgba(238,189,102,.2);}
+#myQuiz .question.answered .ans {cursor: default;}
+#myQuiz .question .ans.image {
+  min-height: 120px;
+  background-repeat: no-repeat;
+  padding: 0px;
+  background-position: 0px 0px;
+  background-size: cover;
+  width: 110
+  }
+
+/*div feedback*/
+
+#myQuiz .feedback {
+  margin-top: 50px;
+  transition: opacity 1s, margin-top 1s;
+  visibility: hidden;
+  opacity: 0;
+  color: #efbe5e;
+}
+#myQuiz .feedback strong {color: #fff;}
+#myQuiz .answered .feedback {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 10px;
+}
+#myQuiz .feedback .btn { margin-top: 15px;}
+
+/*div results*/
+
+#myQuiz .result {position: absolute; top: 225px; left: 660px; width: 550px;}
+#myQuiz .result.new {position: absolute; top: 225px; left: 40px; width: 550px;}
+/*#myQuiz .result.old {position: absolute; top: 225px; left: 660px; width: 550px;}*/
+#myQuiz .result .share {margin-top: 20px;}
+#myQuiz .result .share a.btn {
+  margin-right: 10px; padding: 9px 15px 8px 42px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: 10px 5px;
+}
+#myQuiz .result .share a.btn.email {background-image: url(images/icon_email.svg); background-color: #f0a121;}
+#myQuiz .result .share a.btn.tweet {background-image: url(images/icon_twitter.svg);background-color: #59adeb;}
+
+/*with angular*/
+
+#myQuiz .active, #myQuiz .inactive { transition: left 1s ease-in-out;}
+#myQuiz .active { left: 40px;}
+#myQuiz .intro.inactive { left: -1350px;}
+
+/*#myQuiz.inactive.answered */
+
+/*test*/
+/*
+#myQuiz {height: 1000px;}
+#myQuiz .result {top: 570px !important; left: 40px !important;}
+*/
+
+/*small devices*/
+
+@media screen and (max-width: 650px) {
+  body {padding:0px; margin: 0px;}
+  #myQuiz { width: 320px; background-size: 320px auto;}
+  #myQuiz h1 {width: 300px; font-size: 1.4em; top: 25px; left: 25px;}
+  #myQuiz h1 span {line-height: 43px;}
+  #myQuiz h2 {margin: 0;}
+  #myQuiz h3 {font-size: 1.8em; margin-bottom: 15px;}
+  #myQuiz .btn {
+    display: inline-block; cursor: pointer; background-color: #c04b01;
+    text-decoration: none;
+    color: #fff; padding: 7px 50px; border-radius: 6px;
+    font-size: 1.5em
+  }
+
+  #myQuiz .progress {width: 300px; top: 110px; left: 25px;}
+  #myQuiz .progress div {width: 25px; height: 25px; margin-right: 20px; margin-bottom:17px;}
+  #myQuiz .progress div::after {top: -29px; width: 25px; height: 25px;}
+
+  #myQuiz .intro { width: 300px; top:175px; left: 330px;}
+
+  #myQuiz .question {width: 300px; top: 205px; left: 633px;}
+  #myQuiz .question .txt {font-size: 1.4em; margin-bottom: 15px;}
+  #myQuiz .question .ans {font-size: 1em; margin-bottom: 10px; padding: 5px 10px;}
+  #myQuiz .question .ans.image {min-height: 115px; backgroud-size: auto 65px;}
+  #myQuiz .question .ans.image:hover { background-color: #000;}
+
+  #myQuiz .result {width: 290px; top: 250px; left: 330px;}
+  #myQuiz .result .share {margin-top: 20px;}
+  #myQuiz .result a.btn {margin-top: 20px;}
+  #myQuiz .result p { font-size: 1.4em}
+  #myQuiz .active { left:25px;}
+  #myQuiz .intro.inactive {left: -650px;}
+
+}
